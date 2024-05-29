@@ -51,9 +51,12 @@ export default class LoginComponent {
       error: (err) => {
         if (err.status == 403) {
           alert('Please contact Admin Team');
-          this.loginForm.reset();
+        }
+        if (err.status == 404) {
+          alert('Invalid UserName or Password');
         }
         console.log(err);
+        this.loginForm.reset();
       },
     });
   }

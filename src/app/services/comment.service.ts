@@ -36,8 +36,12 @@ export class CommentService {
       Authorization: `Bearer ${localStorage.getItem('access_token')}`,
     });
 
-    return this.http.put<any>(`${apiUrl.serviceUrl}/comment?id=${id}`, {
-      headers: httpHeaders,
-    });
+    return this.http.put<any>(
+      `${apiUrl.serviceUrl}/comment?id=${id}`,
+      {},
+      {
+        headers: httpHeaders,
+      }
+    );
   }
 }

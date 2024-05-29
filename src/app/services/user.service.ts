@@ -46,9 +46,13 @@ export class UserService {
       Authorization: `Bearer ${localStorage.getItem('access_token')}`,
     });
 
-    return this.http.put<any>(`${apiUrl.serviceUrl}/user?id=${id}`, {
-      headers: httpHeaders,
-    });
+    return this.http.put<any>(
+      `${apiUrl.serviceUrl}/user?id=${id}`,
+      {},
+      {
+        headers: httpHeaders,
+      }
+    );
   }
 
   deleteAccount(id: string | null) {
