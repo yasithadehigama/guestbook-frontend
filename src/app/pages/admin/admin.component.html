@@ -1,0 +1,18 @@
+<div>
+    <p class="text-center font-semibold text-2xl">Manage Comments</p>
+    <ng-container *ngFor="let item of allComments">
+        <div class="max-w-3xl max-h-45 ml-auto mr-auto rounded overflow-hidden shadow-md">
+          <footer class="text-gray-700 text-pretty font-semibold flex justify-end flex-col mt-4 mb-2 ml-10 max-h-max">
+            {{item.comment}}
+            <div class="px-6 pt-4 pb-2">
+              <span class="bg-gray-10 text-sm font-normal text-gray-700 mr-2 mb-2">Commented By {{item.userName}}</span>
+              <button (click)="deleteComment(item._id)" class="bg-red-700 text-white font-bold h-8 w-20 ml-6 rounded float-right">Delete</button>
+             <button (click)="hideComment(item._id)" class="bg-yellow-500 text-white font-bold h-8 w-20 ml-10 rounded float-right">Hide</button>
+            </div>
+             
+          </footer>
+        </div>
+    </ng-container>
+</div>
+
+

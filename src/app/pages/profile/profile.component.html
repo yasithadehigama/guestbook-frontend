@@ -1,0 +1,49 @@
+<div class="lg:w-3/12 mt-2 p-10 shadow-lg mx-auto mb-2">
+    <h3 class="text-2xl text-center font-bold py-5">Update UserName</h3>
+<form [formGroup]="updateUserNameForm" class="flex flex-col">
+    <div class="flex flex-col mt-4 mb-1">
+        <input formControlName="userName" class= "p-2 border border-gray-100 rounded" type="text" placeholder="UserName">
+        <span *ngIf="updateUserNameForm.hasError('required','userName') && updateUserNameForm.controls['userName'].dirty" class="text-red-500">*UserName is Required </span>
+    </div>
+
+    <div class="mt-2 mb-3">
+        <button [disabled]="updateUserNameForm.invalid" [class.disabled]="updateUserNameForm.invalid" (click)="updateUserName()" class="bg-indigo-500 w-1/4 mr-3 p-2 rounded-md text-gray-50">
+            Update
+        </button>
+        <button routerLink="/" class="bg-gray-500 w-1/4 p-2 rounded-md text-gray-50">Cancel</button>
+    </div>
+    
+</form>
+</div>
+
+<div class="lg:w-3/12 mt-5 p-10 shadow-lg mx-auto">
+    <h3 class="text-2xl text-center font-bold py-5">Delete Account</h3>
+    <div class="mt-0">
+        <button (click)="deleteAccount()" class="bg-red-700 w-1/4 mr-3 p-2 rounded-md text-gray-50">
+            Delete
+        </button>
+    </div>
+</div>
+
+
+<div class="lg:w-3/12 mt-2 p-5 shadow-lg mx-auto">
+    <h3 class="text-2xl text-center font-bold py-5">Reset Password</h3>
+<form [formGroup]="resetPasswordForm" class="flex flex-col">
+    <div class="flex flex-col mt-1 mb-1">
+        <input formControlName="currentPassword" class= "p-2 border border-gray-100 rounded" type="password" placeholder="Current Password">
+        <span *ngIf="resetPasswordForm.hasError('required','currentPassword')&& resetPasswordForm.controls['password'].dirty" class="text-red-500">*Current Password is Required</span>
+    </div>
+    <div class="flex flex-col mt-1 mb-1">
+        <input formControlName="password" class= "p-2 border border-gray-100 rounded" type="password" placeholder="New Password">
+        <span *ngIf="resetPasswordForm.hasError('required','password') && resetPasswordForm.controls['password'].dirty"  class="text-red-500">*Password is Required </span>
+    </div>
+    <div class="flex flex-col mt-1 mb-1">
+        <input formControlName="confirmPassword" class= "p-2 border border-gray-100 rounded" type="password" placeholder="ConfirmPassword">
+        <span *ngIf="resetPasswordForm.hasError('required','confirmPassword') && resetPasswordForm.controls['confirmPassword'].dirty"  class="text-red-500">*ConfirmPassword is Required </span>
+        <span *ngIf="resetPasswordForm.hasError('confirmPasswordValidator','confirmPassword')"  class="text-red-500">*Password didn't match</span>
+    </div>
+    <button [disabled]="resetPasswordForm.invalid" [class.disabled]="resetPasswordForm.invalid" (click)="resetPassword()" class="bg-indigo-500 w-1/4 mt-3 mr-3 p-2 rounded-md text-gray-50">
+        Reset
+    </button>
+</form>
+</div>

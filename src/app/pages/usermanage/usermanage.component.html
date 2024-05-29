@@ -1,0 +1,16 @@
+<div>
+    <p class="text-center font-semibold text-2xl">User Management</p>
+    <ng-container *ngFor="let item of allUsers">
+        <div class="max-w-3xl max-h-45 ml-auto mr-auto rounded overflow-hidden shadow-md">
+          <footer class="text-gray-700 text-pretty font-semibold flex justify-end flex-col mt-4 mb-2 ml-10 max-h-max">
+            {{item.email}}
+            <div class="px-6 pt-3 pb-2">
+              <button (click)="deleteUser(item._id)" class="bg-red-700 hover:bg-blue-700 text-white font-bold h-8 w-20 ml-6 pt-1 rounded float-right">Delete</button>
+             <button (click)="banUser(item._id)" class="bg-yellow-500 hover:bg-blue-700 text-white font-bold h-8 w-20 ml-10 rounded float-right">Ban</button>
+            </div>   
+          </footer>
+        </div>
+    </ng-container>
+</div>
+
+

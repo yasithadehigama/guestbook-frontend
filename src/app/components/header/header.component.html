@@ -1,0 +1,26 @@
+<nav class="w-full flex justify-between items-center p-5 bg-indigo-500 shadow-lg">
+    <div class="logo">
+        <span routerLink="/" class="text-gray-200 text-4xl flex justify-start items-center ">GuestBook</span>
+    </div>
+
+    <div class="nav-items">
+        <ng-container *ngIf="!isLoggedIn">
+            <span routerLink="/login"
+                class="text-xl cursor-pointer text-gray-200 font-bold m-3 hover:underline hover:text-indigo-100">Login</span>
+            <span routerLink="/register"
+                class="text-xl cursor-pointer text-gray-200 font-bold m-3 hover:underline hover:text-indigo-100">Register</span>
+        </ng-container>
+        <ng-container *ngIf="isLoggedIn">
+            <span routerLink="/profile"
+                class="text-xl cursor-pointer text-gray-200 font-bold m-3 hover:underline hover:text-indigo-100">My Profile</span>
+            
+            
+            <ng-container *ngIf="isAdminLoggedIn">
+                <span routerLink="/manage-user" class="text-xl cursor-pointer text-gray-200 font-bold m-3 hover:underline hover:text-indigo-100">Users</span>
+                <span routerLink="/" class="text-xl cursor-pointer text-gray-200 font-bold m-3 hover:underline hover:text-indigo-100">Comments</span>
+            </ng-container>
+            <span routerLink="/" (click)="logout()"
+                class="text-xl cursor-pointer text-gray-200 font-bold m-3 hover:underline hover:text-indigo-100">Logout</span>
+        </ng-container>
+    </div>
+</nav>
